@@ -17,6 +17,13 @@ void read_serial_input(HardwareSerial* Serial, std::vector<float>& msg_vector)
         msg_vector.push_back(data);
         idx_A = idx_B;
     }
+
+    send_serial_input(Serial, msg_brut);
+}
+
+void send_serial_input(HardwareSerial* Serial, String msg_vector)
+{
+    Serial->println(msg_vector);
 }
 
 void print_float_vector(HardwareSerial* Serial, std::vector<float>& msg_vector, int option)
